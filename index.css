@@ -105,6 +105,7 @@ textarea::placeholder {
   height: 24px;
   border-left: solid 1px #364153;
   padding: 0 20px 0 20px;
+  cursor: pointer;
 }
 .dropdown img {
   width: 24px;
@@ -129,6 +130,7 @@ textarea::placeholder {
   border: none;
   color: #E3E8EF;
   font-size: 0.875rem;
+  cursor: pointer;
 }
 .speed-btn.active {
   background-color: #1C1B43;
@@ -142,9 +144,14 @@ textarea::placeholder {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background: linear-gradient(90deg, rgb(99, 38, 162) 40%, rgb(38, 63, 169) 100%);
+  background-image: linear-gradient(to right, #6326A2 0%, #263FA9 51%, #9733EE 100%);
+  background-size: 200% auto;
   color: #E3E8EF;
   font-size: 1rem;
   font-weight: 600;
   margin-top: 44px;
+  transition: 0.5s;
+}
+.submit-btn:hover {
+  background-position: right center;
 }/*# sourceMappingURL=index.css.map */

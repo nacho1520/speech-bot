@@ -85,6 +85,7 @@ textarea
     height: 24px
     border-left: solid 1px #364153
     padding: 0 20px 0 20px
+    cursor: pointer
     img
         width: 24px
         height: 24px
@@ -106,6 +107,7 @@ textarea
     border: none
     color: #E3E8EF
     font-size: 0.875rem
+    cursor: pointer
     &.active
         background-color: #1C1B43
         border-radius: 8px
@@ -118,9 +120,13 @@ textarea
     border: none
     border-radius: 12px
     cursor: pointer
-    background: linear-gradient(90deg, rgba(99,38,162,1) 40%, rgba(38,63,169,1) 100%)
+    background-image: linear-gradient(to right, #6326A2 0%, #263FA9  51%, #9733EE 100%)
+    background-size: 200% auto
     color: #E3E8EF
     font-size: 1rem
     font-weight: 600
     margin-top: 44px
+    transition: 0.5s
+    &:hover
+        background-position: right center
 
