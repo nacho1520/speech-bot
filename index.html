@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speechbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 </head>
 <body>
-    
+    <img src="./assets/hero-image-text-to-speech.png" class="hero-img">
+
+    <section class="ui-container">
+        <div class="logo-container">
+            <p class="logo-txt">Speechbot</p>
+            <img src="./assets/logo.svg" class="logo-img">
+        </div>
+
+        <textarea 
+            placeholder="Enter your text"
+            rows="8"
+        ></textarea>
+        <p class="text-guide">Enter your text above and hit 'play.' You can choose a different voice by selecting an option from the dropdown menu.</p>
+        
+        <p class="settings-label">Settings</p>
+
+        <div class="settings-box">
+            <div class="settings-descriptor">
+                <p>Voice</p>
+            </div>
+
+            <div class="dropdown">
+                <p>en-US</p>
+                <img src="./assets/Expand_down.svg">
+            </div>
+
+            <div class="dropdown">
+                <p>Albert</p>
+                <img src="./assets/Expand_down.svg">
+            </div>
+        </div>
+
+        <div class="settings-box">
+            <div class="settings-descriptor">
+                <p>Speed</p>
+            </div>
+
+            <div class="speed-container">
+                <button class="speed-btn active">0.5x</button>
+                <button class="speed-btn">0.75x</button>
+                <button class="speed-btn">1x</button>
+                <button class="speed-btn">1.5x</button>
+            </div>
+        </div>
+
+        <button class="submit-btn">Text to Speech</button>
+    </section>
 </body>
 </html>

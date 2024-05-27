@@ -1,0 +1,126 @@
+*
+    margin: 0
+    padding: 0
+
+body
+    display: flex
+    font-family: "Outfit", sans-serif
+
+.hero-img
+    width: 50%
+    height: 100vh
+    object-fit: cover
+
+.ui-container
+    width: 50%
+    background-color: #1C1B43
+    padding: 32px 32px 0 32px
+
+.logo-container
+    display: flex
+    justify-content: space-between
+    margin-bottom: 40px
+
+.logo-txt
+    font-size: 1.25rem
+    color: #E3E8EF
+
+.logo-img
+    width: 55px
+
+textarea
+    resize: none
+    width: 100%
+    padding: 20px 0 0 20px
+    outline: none
+    background-color: #1E2A52
+    border: solid 2px #2E5B84
+    border-radius: 12px
+    margin-bottom: 8px
+    color: #677489
+    font-weight: 600
+    font-size: 1rem
+    &::placeholder
+        color: #677489
+        font-weight: 600
+        font-size: 1rem
+
+.text-guide
+    font-size: 0.75rem
+    color: #364153
+
+.settings-label   
+    color: #E3E8EF
+    font-size: 0.75rem
+    margin-top: 32px
+    margin-bottom: 8px
+
+.settings-container
+    display: flex
+    flex-direction: column
+    margin-bottom: 62px
+   
+.settings-box
+    display: flex
+    align-items: center
+    width: 340px
+    height: 52px
+    background-color: #1E2A52
+    border-radius: 12px
+    margin-bottom: 18px
+
+.settings-descriptor
+    height: 24px
+    color: #677489
+    font-size: 1rem
+    padding: 0 20px 0 20px
+    margin: 0
+
+.dropdown
+    display: inline-flex
+    flex-wrap: wrap
+    gap: 12px
+    font-size: 1rem
+    color: #E3E8EF
+    height: 24px
+    border-left: solid 1px #364153
+    padding: 0 20px 0 20px
+    img
+        width: 24px
+        height: 24px
+    
+.speed-container
+    padding: 0 20px 0 8px
+    border-left: solid 1px #364153
+    display: inline-flex
+    flex-wrap: wrap
+    gap: 20px
+
+.speed-btn
+    display: flex
+    justify-content: center
+    align-items: center 
+    padding: 8px
+    outline: none
+    background: none
+    border: none
+    color: #E3E8EF
+    font-size: 0.875rem
+    &.active
+        background-color: #1C1B43
+        border-radius: 8px
+
+
+.submit-btn
+    width: 100%
+    height: 52px
+    outline: none
+    border: none
+    border-radius: 12px
+    cursor: pointer
+    background: linear-gradient(90deg, rgba(99,38,162,1) 40%, rgba(38,63,169,1) 100%)
+    color: #E3E8EF
+    font-size: 1rem
+    font-weight: 600
+    margin-top: 44px
+
