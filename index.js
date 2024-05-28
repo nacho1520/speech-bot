@@ -9,16 +9,58 @@ window.addEventListener('load', () => {
     const voiceBtn = document.querySelector('#voice-dropdown');
     const voiceDisplay = document.querySelector('#voice-display');
     const voiceList = document.querySelector('#voice-content');
-    const voiceOptions = document.querySelectorAll('#voice-option');
+
+    const voiceNames = {
+        'en-US': ['Albert'],
+        'es-ES': ['Helena', 'Laura', 'Pablo', 'Oscar'], 
+        'en-GB': ['Naomi', 'Michael'],
+        'fr-FR': ['Olivier'],
+        'it-IT': ['Andrea'],
+        'hi-IN': ['Pranita'],
+        'pt-BR': ['Carmen'],
+    };
+
 
     const synth = window.speechSynthesis;
     let voices;
     let speed = 1;
     let langSelected = 'en-US';
+    let voiceSelected = 'Google US English';
 
     const loadVoices = () => {
         voices = synth.getVoices();
-        console.log(voices);
+    };
+
+    const addVoiceListeners = () => {
+        const voiceOptions = document.querySelectorAll('#voice-option');
+        voiceSelected = voiceOptions[0].value;
+        voiceOptions.forEach((voice) => {
+            voice.addEventListener('click', () => {
+                voiceOptions.forEach(voice => { voice.classList.remove('active') });
+                voice.classList.add('active');
+                voiceDisplay.textContent = voice.textContent;
+                voiceList.classList.remove('active');
+                voiceSelected = voice.value;
+            });
+        });
+    };
+
+    const fillVoices = () => {
+        voiceList.textContent = "";
+        const filteredVoices = voices.filter((voice) => voice.lang == langSelected);
+        filteredVoices.forEach((voice, index) => {
+            const node = document.createElement('button');
+            const textNode = document.createTextNode(voiceNames[voice.lang][index]);
+            node.appendChild(textNode);
+            node.value = voice.name;
+            node.id = 'voice-option';
+            if(index == 0) {
+                node.classList.add('active');
+            }
+            voiceList.appendChild(node);
+        });
+        voiceDisplay.textContent = voiceNames[langSelected][0];
+        addVoiceListeners();
     };
 
     // in Google Chrome the voices are not ready on page load
@@ -38,6 +80,11 @@ window.addEventListener('load', () => {
 
     submitBtn.addEventListener('click', () => {
         const utterThis = new SpeechSynthesisUtterance(userInput.value);
+        for(var i = 0; i < voices.length; i++) {
+            if(voices[i].name === voiceSelected) {
+                utterThis.voice = voices[i];
+            }
+        }
         utterThis.lang = langSelected;
         utterThis.rate = speed;
         synth.speak(utterThis);
@@ -57,17 +104,11 @@ window.addEventListener('load', () => {
             lang.classList.add('active');
             langDisplay.textContent = lang.textContent;
             langSelected = lang.value;
-            console.log(langSelected); 
             langList.classList.remove('active');
+            fillVoices(langSelected);
         });
     });
 
-    voiceOptions.forEach((voice) => {
-        voice.addEventListener('click', () => {
-            voiceOptions.forEach(voice => { voice.classList.remove('active') });
-            voice.classList.add('active');
-            voiceDisplay.textContent = voice.textContent;
-            voiceList.classList.remove('active');
-        });
-    });
+    addVoiceListeners();
+    
 });
