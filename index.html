@@ -33,13 +33,31 @@
             </div>
 
             <div class="dropdown">
-                <p>en-US</p>
-                <img src="./assets/Expand_down.svg">
+                <button class="dropdown-btn" id="lang-dropdown">
+                    <p id="lang-display">en-US</p>
+                    <img src="./assets/Expand_down.svg">
+                </button>
+                <div class="dropdown-content" id="lang-content">
+                    <button class="active" id="lang-option">en-US</button>
+                    <button id="lang-option">en-GB</button>
+                    <button id="lang-option">es-ES</button>
+                    <button id="lang-option">fr-FR</button>
+                    <button id="lang-option">it-IT</button>
+                    <button id="lang-option">id-ID</button>
+                    <button id="lang-option">pt-BR</button>
+                </div>
             </div>
 
             <div class="dropdown">
-                <p>Albert</p>
-                <img src="./assets/Expand_down.svg">
+                <button class="dropdown-btn" id="voice-dropdown">
+                    <p id="voice-display">Albert</p>
+                    <img src="./assets/Expand_down.svg">
+                </button>
+                <div class="dropdown-content" id="voice-content">
+                    <button class="active" value="Google US English" id="voice-option">Albert</button>
+                    <button value="Microsoft Helena - Spanish (Spain)" id="voice-option">Helena</button>
+                    <button value="Microsoft Pablo - Spanish (Spain)" id="voice-option">Pablo</button>
+                </div>
             </div>
         </div>
 
