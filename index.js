@@ -14,6 +14,7 @@ window.addEventListener('load', () => {
     const synth = window.speechSynthesis;
     let voices;
     let speed = 1;
+    let langSelected = 'en-US';
 
     const loadVoices = () => {
         voices = synth.getVoices();
@@ -37,6 +38,7 @@ window.addEventListener('load', () => {
 
     submitBtn.addEventListener('click', () => {
         const utterThis = new SpeechSynthesisUtterance(userInput.value);
+        utterThis.lang = langSelected;
         utterThis.rate = speed;
         synth.speak(utterThis);
     });
@@ -54,6 +56,8 @@ window.addEventListener('load', () => {
             langOptions.forEach(lang => { lang.classList.remove('active') });
             lang.classList.add('active');
             langDisplay.textContent = lang.textContent;
+            langSelected = lang.value;
+            console.log(langSelected); 
             langList.classList.remove('active');
         });
     });
