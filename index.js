@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+    // Document Widgets
     const userInput = document.querySelector('#user-text');
     const speedBtns = document.querySelectorAll('.speed-btn');
     const submitBtn = document.querySelector('.submit-btn');
@@ -10,6 +11,7 @@ window.addEventListener('load', () => {
     const voiceDisplay = document.querySelector('#voice-display');
     const voiceList = document.querySelector('#voice-content');
 
+    // Global variables
     const voiceNames = {
         'en-US': ['Albert'],
         'es-ES': ['Helena', 'Laura', 'Pablo', 'Oscar'], 
@@ -19,8 +21,6 @@ window.addEventListener('load', () => {
         'hi-IN': ['Pranita'],
         'pt-BR': ['Carmen'],
     };
-
-
     const synth = window.speechSynthesis;
     let voices;
     let speed = 1;
@@ -43,6 +43,21 @@ window.addEventListener('load', () => {
                 voiceSelected = voice.value;
             });
         });
+    };
+
+    const speak = () => {
+        if(synth.speaking) {
+            synth.cancel();
+        }
+        const utterThis = new SpeechSynthesisUtterance(userInput.value);
+        for(var i = 0; i < voices.length; i++) {
+            if(voices[i].name === voiceSelected) {
+                utterThis.voice = voices[i];
+            }
+        }
+        utterThis.lang = langSelected;
+        utterThis.rate = speed;
+        synth.speak(utterThis);
     };
 
     const fillVoices = () => {
@@ -79,15 +94,11 @@ window.addEventListener('load', () => {
     });
 
     submitBtn.addEventListener('click', () => {
-        const utterThis = new SpeechSynthesisUtterance(userInput.value);
-        for(var i = 0; i < voices.length; i++) {
-            if(voices[i].name === voiceSelected) {
-                utterThis.voice = voices[i];
-            }
+        if(userInput.value) {
+            speak();
+        } else {
+            alert('Enter a text');
         }
-        utterThis.lang = langSelected;
-        utterThis.rate = speed;
-        synth.speak(utterThis);
     });
 
     langBtn.addEventListener('click', () => {
