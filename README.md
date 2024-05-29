@@ -11,4 +11,4 @@ User can enter a text and listen to the bot. Also, user can change the bot voice
 * JavaScript
 * SpeechSynthesisUtterance
 
-![Screenshot](https://github.com/nacho1520/guess-word-game/blob/main/public/screen-shot.png)      
+![Screenshot](https://github.com/nacho1520/speech-bot/blob/main/public/Screen-shot.png)      
